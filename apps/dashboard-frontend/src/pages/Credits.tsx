@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 export function Credits() {
   const elysiaClient = useElysiaClient();
   const [showComingSoon, setShowComingSoon] = useState(false);
+  const [showSuccessGlow, setShowSuccessGlow] = useState(false);
 
   // Fetch user details
   const {
@@ -108,7 +109,11 @@ export function Credits() {
               <Button
                 onClick={() => {
                   setShowComingSoon(true);
-                  setTimeout(() => setShowComingSoon(false), 4000);
+                  setShowSuccessGlow(true);
+                  setTimeout(() => {
+                    setShowComingSoon(false);
+                    setShowSuccessGlow(false);
+                  }, 4000);
                 }}
                 className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-5 h-11 rounded-lg flex items-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/20 shrink-0 w-full sm:w-auto justify-center"
               >
