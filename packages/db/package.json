@@ -1,0 +1,14 @@
+{
+  "name": "db",
+  "module": "index.ts",
+  "type": "module",
+  "exports": {
+      "." :"./index.ts" },
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

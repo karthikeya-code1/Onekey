@@ -1,0 +1,43 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# !! NEVER commit real secrets !!
+# All .env variants (but .env.example IS allowed — it has no real values)
+.env
+.env.*
+!.env.example
+
+# Testing
+coverage
+
+# Turbo
+.turbo
+
+# Vercel
+.vercel
+
+# Build Outputs
+.next/
+out/
+build
+dist
+
+# Generated Prisma client (regenerated via `prisma generate`)
+packages/db/generated/
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Scratch / dev-only scripts
+apps/primary-backend/scratch_test.ts
+apps/primary-backend/list_users.ts
+
+# Misc
+.DS_Store
+*.pem
