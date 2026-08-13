@@ -7,6 +7,7 @@ import { app as paymentsApp } from "./modules/payments";
 
 export const app = new Elysia()
   .use(cors())
+  .get("/", () => ({ status: "ok", message: "OneKey Primary Backend is running 🦊" }))
   .use(authapp)
   .use(apiKeyApp)
   .use(modelsApp)
