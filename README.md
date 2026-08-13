@@ -129,7 +129,7 @@ bun run dev
 
 ## 📡 Live API Usage
 
-Once you create an account on [onekey-psi.vercel.app](https://onekey-psi.vercel.app) and generate an API key:
+Once you create an account on [onekey-frontend-six.vercel.app](https://onekey-frontend-six.vercel.app) and generate an API key:
 
 ```sh
 curl -X POST https://onekey-1.onrender.com/api/v1/chat/completions \
