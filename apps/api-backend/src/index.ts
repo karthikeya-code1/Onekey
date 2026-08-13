@@ -71,7 +71,7 @@ const app = new Elysia()
         }
         // Any other Google API error
         return status(503, {
-          message: `Google API error: ${msg || "Unknown error. Please try again later."}` 
+          message: `Google API error: ${msg || "Unknown error. Please try again later."}`
         })
       }
     }
