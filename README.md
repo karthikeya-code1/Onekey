@@ -127,18 +127,18 @@ bun run dev
 
 ---
 
-## 📡 API Usage
+## 📡 Live API Usage
 
-Once you have an API key from the dashboard:
+Once you create an account on [onekey-psi.vercel.app](https://onekey-psi.vercel.app) and generate an API key:
 
 ```sh
-curl -X POST http://localhost:4000/api/v1/chat/completions \
-  -H "Authorization: Bearer your-api-key" \
+curl -X POST https://onekey-1.onrender.com/api/v1/chat/completions \
+  -H "Authorization: Bearer YOUR_ONEKEY_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "google/gemini-2.0-flash",
     "messages": [
-      { "role": "user", "content": "Hello!" }
+      { "role": "user", "content": "Hello! Explain quantum computing in 2 sentences." }
     ]
   }'
 ```
