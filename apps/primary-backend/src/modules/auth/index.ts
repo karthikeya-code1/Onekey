@@ -47,7 +47,10 @@ export const app = new Elysia({ prefix: "auth" })
         auth.set({
           value: token,
           httpOnly: true,
+          sameSite: "none",
+          secure: true,
           maxAge: 7 * 86400,
+          path: "/",
         });
         return {
           message: "Signed in",
@@ -93,7 +96,14 @@ export const app = new Elysia({ prefix: "auth" })
   })
   .post("/sign-out", async ({ cookie: { auth } }) => {
     if (auth) {
-      auth.remove();
+      auth.set({
+        value: "",
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+        maxAge: 0,
+        path: "/",
+      });
     }
     return {
       message: "Signed out" as const,
