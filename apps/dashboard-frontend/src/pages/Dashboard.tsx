@@ -298,11 +298,10 @@ export function Dashboard() {
               return (
                 <div
                   key={model.id}
-                  className={`bg-zinc-900/30 hover:bg-zinc-900/50 border rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between ${
-                    isExpanded
+                  className={`bg-zinc-900/30 hover:bg-zinc-900/50 border rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between ${isExpanded
                       ? "border-violet-500/30 shadow-lg shadow-violet-500/5 col-span-1 md:col-span-2 lg:col-span-3"
                       : "border-white/5 hover:border-white/10"
-                  }`}
+                    }`}
                 >
                   <div>
                     {/* Card Header */}

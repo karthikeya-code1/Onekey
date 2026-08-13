@@ -119,18 +119,16 @@ export function Layout({ children }: LayoutProps) {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 group ${
-                  isActive
+                className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 group ${isActive
                     ? "bg-violet-600/15 text-violet-400 border border-violet-500/20"
                     : "text-neutral-400 hover:bg-white/5 hover:text-neutral-200 border border-transparent"
-                }`}
+                  }`}
               >
                 <Icon
-                  className={`h-4.5 w-4.5 transition-transform duration-200 ${
-                    isActive
+                  className={`h-4.5 w-4.5 transition-transform duration-200 ${isActive
                       ? "text-violet-400"
                       : "text-neutral-500 group-hover:text-neutral-300"
-                  }`}
+                    }`}
                 />
                 {item.name}
               </Link>
@@ -216,11 +214,10 @@ export function Layout({ children }: LayoutProps) {
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                    isActive
+                  className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${isActive
                       ? "bg-violet-600/15 text-violet-400"
                       : "text-neutral-400 hover:bg-white/5 hover:text-neutral-200"
-                  }`}
+                    }`}
                 >
                   <Icon className="h-4.5 w-4.5" />
                   {item.name}

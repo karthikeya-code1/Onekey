@@ -3,7 +3,7 @@ import type { App } from "primary-backend";
 import { createContext, useContext } from "react";
 
 const backendUrl =
-  import.meta.env?.VITE_PRIMARY_BACKEND_URL || "http://localhost:3001";
+  import.meta.env?.VITE_PRIMARY_BACKEND_URL || "https://onekey-b52i.onrender.com";
 
 const client = treaty<App>(backendUrl, {
   headers: () => {
