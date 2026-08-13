@@ -55,11 +55,14 @@ export function Signin() {
       }
       return res.data;
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      if (data && "token" in data && typeof data.token === "string") {
+        localStorage.setItem("token", data.token);
+      }
       queryClient.invalidateQueries("me");
       setTimeout(() => {
         navigate("/dashboard");
-      }, 1000);
+      }, 500);
     },
   });
 

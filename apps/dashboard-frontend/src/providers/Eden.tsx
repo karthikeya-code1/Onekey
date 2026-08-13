@@ -6,8 +6,9 @@ const backendUrl =
   import.meta.env?.VITE_PRIMARY_BACKEND_URL || "http://localhost:3001";
 
 const client = treaty<App>(backendUrl, {
-  headers: {
-    // any custom headers can go here
+  headers: () => {
+    const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+    return token ? { authorization: `Bearer ${token}` } : {};
   },
   fetch: {
     credentials: "include",

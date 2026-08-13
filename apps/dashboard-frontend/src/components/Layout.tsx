@@ -49,6 +49,7 @@ export function Layout({ children }: LayoutProps) {
   // Handle authentication redirect
   useEffect(() => {
     if (error) {
+      localStorage.removeItem("token");
       navigate("/signin");
     }
   }, [error, navigate]);
@@ -56,11 +57,13 @@ export function Layout({ children }: LayoutProps) {
   // Sign out mutation
   const logoutMutation = useMutation({
     mutationFn: async () => {
+      localStorage.removeItem("token");
       const res = await elysiaClient.auth["sign-out"].post();
       if (res.error) throw new Error("Signout failed");
       return res.data;
     },
     onSuccess: () => {
+      localStorage.removeItem("token");
       queryClient.clear(); // Clear cache
       navigate("/signin");
     },

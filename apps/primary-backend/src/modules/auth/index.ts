@@ -54,6 +54,7 @@ export const app = new Elysia({ prefix: "auth" })
         });
         return {
           message: "Signed in",
+          token,
         };
       } else {
         return status(403, {
@@ -69,11 +70,17 @@ export const app = new Elysia({ prefix: "auth" })
       },
     },
   )
-  .get("/me", async ({ jwt, cookie: { auth }, status }) => {
-    if (!auth || !auth.value) {
+  .get("/me", async ({ jwt, cookie: { auth }, headers, status }) => {
+    let tokenStr = auth?.value as string | undefined;
+    const authHeader = headers["authorization"];
+    if (authHeader && authHeader.startsWith("Bearer ")) {
+      tokenStr = authHeader.substring(7);
+    }
+
+    if (!tokenStr) {
       return status(401, { message: "Unauthorized" });
     }
-    const decoded = await jwt.verify(auth.value as string);
+    const decoded = await jwt.verify(tokenStr);
     if (!decoded || !decoded.userId) {
       return status(401, { message: "Unauthorized" });
     }
